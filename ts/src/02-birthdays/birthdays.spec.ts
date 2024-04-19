@@ -27,10 +27,14 @@ describe("birthdays", function () {
     });
 
     it('should return two birthdays if asked on the same date than two existing birthdays', () => {
+        // ARRANGE
         notebook.addBirthday('Alice', new Date(2020, 0, 1));
         notebook.addBirthday('Bob', new Date(2015, 0, 1));
 
+        // ACT
         const birthdays = notebook.getBirthdays(new Date(2024, 0, 1));
+
+        // ASSERT
         expect(birthdays).toHaveLength(2);
 
         // Bloc 1 ==> Boite blanche

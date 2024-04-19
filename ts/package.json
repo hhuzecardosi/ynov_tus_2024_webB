@@ -8,6 +8,7 @@
     "test:mutation": "stryker run"
   },
   "devDependencies": {
+    "@types/lodash": "^4.17.0",
     "@stryker-mutator/core": "^7.1.1",
     "@stryker-mutator/jest-runner": "^7.1.1",
     "@types/jest": "^28.1.6",
