@@ -33,6 +33,7 @@ describe('ReceiptPrinter', () => {
     const printedReceipt = receiptPrinter.printReceipt(receipt);
 
     //ASSERT
+    // use a helper to parse the receipt
     const receiptParser = new ReceiptParser(printedReceipt);
     expect(receiptParser.getTotalPrice()).toEqual('0.00');
   });
