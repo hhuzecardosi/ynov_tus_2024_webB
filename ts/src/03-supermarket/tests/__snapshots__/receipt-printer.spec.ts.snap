@@ -6,3 +6,20 @@ exports[`ReceiptPrinter should work with one item 1`] = `
 
 Total:                              3.20"
 `;
+
+exports[`ReceiptPrinter should work with two items 1`] = `
+"apples                              3.20
+  1.60 * 2.000
+bananas                             1.20
+
+Total:                              4.40"
+`;
+
+exports[`ReceiptPrinter should work with two items and discounts on one 1`] = `
+"apples                              3.20
+  1.60 * 2.000
+bananas                             1.20
+2 for 1(apples)                    -1.60
+
+Total:                              2.80"
+`;
