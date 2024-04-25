@@ -1,7 +1,7 @@
-import { Money } from "./model/money";
-import { Currency } from "./model/currency";
-import { ConversionRateApi } from "./external/conversion-rate-api";
-import { CurrencyIsoCode } from "./external/currency-iso-code";
+import {Money} from "./model/money";
+import {Currency} from "./model/currency";
+import {CurrencyIsoCode} from "./external/currency-iso-code";
+import {IConversionRateApi} from "./i-conversion-rate-api";
 
 function codeToIsoCode(currency: Currency): CurrencyIsoCode {
   switch (currency) {
@@ -17,7 +17,7 @@ function codeToIsoCode(currency: Currency): CurrencyIsoCode {
 }
 
 export class CurrencyConverter {
-  constructor(private readonly conversionRateApi: ConversionRateApi) {}
+  constructor(private readonly conversionRateApi: IConversionRateApi) {}
 
   sum(target: Currency, ...money: Money[]): Money {
     // We are paying each call we make to the API, so better not make useless calls
