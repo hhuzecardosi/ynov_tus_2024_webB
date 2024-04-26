@@ -3,11 +3,18 @@ import User from "../user/User";
 import UserSession from "../user/UserSession";
 import Trip from "./Trip";
 import TripDAO from "./TripDAO";
+import {IUserSession} from "../user/IUserSession";
 
 export default class TripService {
+    userSession: IUserSession;
+
+    constructor(userSession?: IUserSession) {
+        this.userSession = userSession || UserSession;
+    }
+
     public getTripsByUser(user: User): Trip[] {
         let tripList: Trip[] = [];
-        const loggedUser: User = UserSession.getLoggedUser();
+        const loggedUser: User = this.userSession.getLoggedUser();
         let isFriend: boolean = false;
 
         if (loggedUser != null) {
