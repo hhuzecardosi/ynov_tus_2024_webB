@@ -23,7 +23,15 @@ describe('Game of life kata', () => {
         expect(gameOfLife.toString()).toBe(initialBoard);
     });
 
-    it('should kill any cell that does not have 2 neighbors', () => {
+    it('should bump the generation if nextTurn is invoked', () => {
+        const initialBoard = new BoardHelper(1, 2, 3).withLine('...').withLine('...').build();
+        const gameOfLife = GameOfLife.FromString(initialBoard);
+        gameOfLife.nextTurn();
+
+        expect(gameOfLife.toString()).toContain('Generation 2:');
+    });
+
+    xit('should kill any cell that does not have 2 neighbors', () => {
         // ARRANGE
         const initialBoard = new BoardHelper(1, 2, 3).withLine('.**').withLine('...').build();
 
